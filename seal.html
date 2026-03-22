@@ -5,17 +5,26 @@
     * { margin: 0; padding: 0; }
     body { background: black; }
     video { width: 100vw; height: 100vh; }
+    #log { position: fixed; top: 10px; left: 10px; color: white; font-size: 20px; }
   </style>
 </head>
 <body>
   <video id="v" playsinline muted src="/seal.mp4"></video>
+  <div id="log">waiting...</div>
   <script>
     const v = document.getElementById('v');
+    const log = document.getElementById('log');
+
+    v.oncanplay = () => log.textContent = 'can play!';
+    v.onloadeddata = () => log.textContent = 'data loaded!';
+    v.onerror = () => log.textContent = 'error: ' + v.error.message;
+
     setTimeout(() => {
-      v.play().then(() => {
-        v.muted = false;
-      });
-    }, 5000);
+      log.textContent = 'trying to play...';
+      v.play()
+        .then(() => log.textContent = 'playing!')
+        .catch(e => log.textContent = 'failed: ' + e.message);
+    }, 1000);
   </script>
 </body>
 </html>
