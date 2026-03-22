@@ -8,6 +8,12 @@
   </style>
 </head>
 <body>
-  <video autoplay playsinline src="/seal.mp4"></video>
+  <video id="v" autoplay playsinline muted src="/seal.mp4"></video>
+  <script>
+    const v = document.getElementById('v');
+    v.play().then(() => {
+      v.muted = false;
+    });
+  </script>
 </body>
 </html>
