@@ -8,12 +8,14 @@
   </style>
 </head>
 <body>
-  <video id="v" autoplay playsinline muted src="/seal.mp4"></video>
+  <video id="v" playsinline muted src="/seal.mp4"></video>
   <script>
     const v = document.getElementById('v');
-    v.play().then(() => {
-      v.muted = false;
-    });
+    setTimeout(() => {
+      v.play().then(() => {
+        v.muted = false;
+      });
+    }, 500);
   </script>
 </body>
 </html>
