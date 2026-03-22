@@ -2,14 +2,20 @@
 <html>
 <head>
   <style>
-    * { margin: 0; padding: 0; background: black; }
-    iframe { width: 100vw; height: 100vh; border: none; }
+    * { margin: 0; padding: 0; }
+    body { background: black; }
+    iframe { width: 100vw; height: 100vh; border: none; display: block; }
   </style>
 </head>
 <body>
-  <iframe 
-    src="https://www.youtube.com/embed/5VDg9Gj0Uj4?autoplay=1&mute=0" 
+  <iframe id="player"
+    src="https://www.youtube.com/embed/5VDg9Gj0Uj4?autoplay=1&mute=0"
     allow="autoplay; fullscreen">
   </iframe>
+  <script>
+    window.onload = () => {
+      document.getElementById('player').click();
+    }
+  </script>
 </body>
 </html>
